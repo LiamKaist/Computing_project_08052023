@@ -468,14 +468,13 @@ int yy_flex_debug = 0;
 #define YY_MORE_ADJ 0
 #define YY_RESTORE_YY_MORE_OFFSET
 char *yytext;
-#line 1 "lexical_analyser.l"
-#line 2 "lexical_analyser.l"
+#line 1 "lexical_analyserV2.l"
+#line 2 "lexical_analyserV2.l"
 # include <stdio.h>
-
-
+# include "../Syntax_analyser/y.tab.h"
 //Rule definition area
+#line 477 "lex.yy.c"
 #line 478 "lex.yy.c"
-#line 479 "lex.yy.c"
 
 #define INITIAL 0
 
@@ -692,9 +691,9 @@ YY_DECL
 		}
 
 	{
-#line 10 "lexical_analyser.l"
+#line 9 "lexical_analyserV2.l"
 
-#line 698 "lex.yy.c"
+#line 697 "lex.yy.c"
 
 	while ( /*CONSTCOND*/1 )		/* loops until end-of-file is reached */
 		{
@@ -753,71 +752,71 @@ do_action:	/* This label is used only to access EOF actions. */
 
 case 1:
 YY_RULE_SETUP
-#line 11 "lexical_analyser.l"
-{printf("Function main \n");}
+#line 10 "lexical_analyserV2.l"
+{return t_main;}
 	YY_BREAK
 case 2:
 YY_RULE_SETUP
-#line 12 "lexical_analyser.l"
-{printf("Curly bracket first \n");}   
+#line 11 "lexical_analyserV2.l"
+{return t_curlbrack1;}   
 	YY_BREAK
 case 3:
 YY_RULE_SETUP
-#line 13 "lexical_analyser.l"
-{printf("Curly bracket second \n");}
+#line 12 "lexical_analyserV2.l"
+{return t_curlbrack2;}
 	YY_BREAK
 case 4:
 YY_RULE_SETUP
-#line 14 "lexical_analyser.l"
-{printf("constant named %s \n",(yytext+6));}
+#line 13 "lexical_analyserV2.l"
+{return t_const;}
 	YY_BREAK
 case 5:
 YY_RULE_SETUP
-#line 15 "lexical_analyser.l"
-{printf("printf with parameter : %s \n", yytext+6);}
+#line 14 "lexical_analyserV2.l"
+{return t_printf;}
 	YY_BREAK
 case 6:
 YY_RULE_SETUP
-#line 16 "lexical_analyser.l"
-{printf("integer declarations \n");}
+#line 15 "lexical_analyserV2.l"
+{return t_declaration;}
 	YY_BREAK
 case 7:
 YY_RULE_SETUP
-#line 17 "lexical_analyser.l"
-{printf("math operator \n");}
+#line 16 "lexical_analyserV2.l"
+{return t_math_operator;}
 	YY_BREAK
 case 8:
 YY_RULE_SETUP
-#line 18 "lexical_analyser.l"
-{printf("parentheses first \n");}
+#line 17 "lexical_analyserV2.l"
+{return t_parentheses1;}
 	YY_BREAK
 case 9:
 YY_RULE_SETUP
-#line 19 "lexical_analyser.l"
-{printf("parentheses second \n");}
+#line 18 "lexical_analyserV2.l"
+{return t_parentheses2;}
 	YY_BREAK
 case 10:
 YY_RULE_SETUP
-#line 20 "lexical_analyser.l"
-{printf("separators \n");}
+#line 19 "lexical_analyserV2.l"
+{return t_separators;}
 	YY_BREAK
 case 11:
 /* rule 11 can match eol */
 YY_RULE_SETUP
-#line 21 "lexical_analyser.l"
-{printf("carriage return \n");}
+#line 20 "lexical_analyserV2.l"
+{return t_carriage_return;}
 	YY_BREAK
 case 12:
 YY_RULE_SETUP
-#line 22 "lexical_analyser.l"
-{printf("End of Instruction \n");}
+#line 21 "lexical_analyserV2.l"
+{return t_end_of_instruc;}
 	YY_BREAK
 case 13:
 YY_RULE_SETUP
-#line 23 "lexical_analyser.l"
+#line 22 "lexical_analyserV2.l"
 ECHO;
 	YY_BREAK
-#line 821 "lex.yy.c"
+#line 820 "lex.yy.c"
 case YY_STATE_EOF(INITIAL):
 	yyterminate();
 
@@ -1822,10 +1821,6 @@ void yyfree (void * ptr )
 
 #define YYTABLES_NAME "yytables"
 
-#line 23 "lexical_analyser.l"
+#line 22 "lexical_analyserV2.l"
 
 
-//Main function area (to be removed to work with yacc)
-int main(){
-    yylex();
-}
