@@ -2,11 +2,13 @@
 
 %{
 #include <stdio.h>
+extern char buffer[400];
 %}
 // Declarations
 
+
 %start symbol
-%token t_separators t_carriage_return t_main t_curlbrack1 t_curlbrack2 t_const t_printf t_declaration t_math_operator t_parentheses1 t_parentheses2 t_end_of_instruc
+%token t_name t_separators t_carriage_return t_main t_curlbrack1 t_curlbrack2 t_const t_printf t_declaration t_math_operator t_parentheses1 t_parentheses2 t_end_of_instruc
 
 //Règles
 
@@ -17,9 +19,9 @@
             printf("start");
         }
         ;
-    A : t_carriage_return
+    A : t_main t_curlbrack1 t_const t_separators t_name t_end_of_instruc t_curlbrack2
         {
-            printf("message");
+            printf("message : %s", buffer);
         }
         ;
 %%

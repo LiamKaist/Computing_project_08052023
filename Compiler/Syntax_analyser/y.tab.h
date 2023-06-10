@@ -54,18 +54,19 @@ extern int yydebug;
     YYEOF = 0,                     /* "end of file"  */
     YYerror = 256,                 /* error  */
     YYUNDEF = 257,                 /* "invalid token"  */
-    t_separators = 258,            /* t_separators  */
-    t_carriage_return = 259,       /* t_carriage_return  */
-    t_main = 260,                  /* t_main  */
-    t_curlbrack1 = 261,            /* t_curlbrack1  */
-    t_curlbrack2 = 262,            /* t_curlbrack2  */
-    t_const = 263,                 /* t_const  */
-    t_printf = 264,                /* t_printf  */
-    t_declaration = 265,           /* t_declaration  */
-    t_math_operator = 266,         /* t_math_operator  */
-    t_parentheses1 = 267,          /* t_parentheses1  */
-    t_parentheses2 = 268,          /* t_parentheses2  */
-    t_end_of_instruc = 269         /* t_end_of_instruc  */
+    t_name = 258,                  /* t_name  */
+    t_separators = 259,            /* t_separators  */
+    t_carriage_return = 260,       /* t_carriage_return  */
+    t_main = 261,                  /* t_main  */
+    t_curlbrack1 = 262,            /* t_curlbrack1  */
+    t_curlbrack2 = 263,            /* t_curlbrack2  */
+    t_const = 264,                 /* t_const  */
+    t_printf = 265,                /* t_printf  */
+    t_declaration = 266,           /* t_declaration  */
+    t_math_operator = 267,         /* t_math_operator  */
+    t_parentheses1 = 268,          /* t_parentheses1  */
+    t_parentheses2 = 269,          /* t_parentheses2  */
+    t_end_of_instruc = 270         /* t_end_of_instruc  */
   };
   typedef enum yytokentype yytoken_kind_t;
 #endif
@@ -74,18 +75,19 @@ extern int yydebug;
 #define YYEOF 0
 #define YYerror 256
 #define YYUNDEF 257
-#define t_separators 258
-#define t_carriage_return 259
-#define t_main 260
-#define t_curlbrack1 261
-#define t_curlbrack2 262
-#define t_const 263
-#define t_printf 264
-#define t_declaration 265
-#define t_math_operator 266
-#define t_parentheses1 267
-#define t_parentheses2 268
-#define t_end_of_instruc 269
+#define t_name 258
+#define t_separators 259
+#define t_carriage_return 260
+#define t_main 261
+#define t_curlbrack1 262
+#define t_curlbrack2 263
+#define t_const 264
+#define t_printf 265
+#define t_declaration 266
+#define t_math_operator 267
+#define t_parentheses1 268
+#define t_parentheses2 269
+#define t_end_of_instruc 270
 
 /* Value type.  */
 #if ! defined YYSTYPE && ! defined YYSTYPE_IS_DECLARED

@@ -23,3 +23,7 @@ Changes to investigate another day :
 
 How to store the variables and constants?
 Create a task manager to divide and monitor task advancement
+
+10/06/2023
+
+New file V3 for lex analyser , with extra tokens , tried to test the implementation of a buffer

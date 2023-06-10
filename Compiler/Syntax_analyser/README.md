@@ -27,6 +27,11 @@ Compile a simple addition into the custom assembly language instructions.
 
 Understand how to store the declared variables ... (Crucial)
 
+10/06/2023
+
+Now I know the syntax analyser can recognize more complex sentences
+
+the same improvements should be investigated, however yylval seems to be the way to pass a text argument to yacc file.
 
 
 

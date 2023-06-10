@@ -70,8 +70,9 @@
 #line 3 "syntax_analyser.y"
 
 #include <stdio.h>
+extern char buffer[400];
 
-#line 75 "y.tab.c"
+#line 76 "y.tab.c"
 
 # ifndef YY_CAST
 #  ifdef __cplusplus
@@ -115,18 +116,19 @@ extern int yydebug;
     YYEOF = 0,                     /* "end of file"  */
     YYerror = 256,                 /* error  */
     YYUNDEF = 257,                 /* "invalid token"  */
-    t_separators = 258,            /* t_separators  */
-    t_carriage_return = 259,       /* t_carriage_return  */
-    t_main = 260,                  /* t_main  */
-    t_curlbrack1 = 261,            /* t_curlbrack1  */
-    t_curlbrack2 = 262,            /* t_curlbrack2  */
-    t_const = 263,                 /* t_const  */
-    t_printf = 264,                /* t_printf  */
-    t_declaration = 265,           /* t_declaration  */
-    t_math_operator = 266,         /* t_math_operator  */
-    t_parentheses1 = 267,          /* t_parentheses1  */
-    t_parentheses2 = 268,          /* t_parentheses2  */
-    t_end_of_instruc = 269         /* t_end_of_instruc  */
+    t_name = 258,                  /* t_name  */
+    t_separators = 259,            /* t_separators  */
+    t_carriage_return = 260,       /* t_carriage_return  */
+    t_main = 261,                  /* t_main  */
+    t_curlbrack1 = 262,            /* t_curlbrack1  */
+    t_curlbrack2 = 263,            /* t_curlbrack2  */
+    t_const = 264,                 /* t_const  */
+    t_printf = 265,                /* t_printf  */
+    t_declaration = 266,           /* t_declaration  */
+    t_math_operator = 267,         /* t_math_operator  */
+    t_parentheses1 = 268,          /* t_parentheses1  */
+    t_parentheses2 = 269,          /* t_parentheses2  */
+    t_end_of_instruc = 270         /* t_end_of_instruc  */
   };
   typedef enum yytokentype yytoken_kind_t;
 #endif
@@ -135,18 +137,19 @@ extern int yydebug;
 #define YYEOF 0
 #define YYerror 256
 #define YYUNDEF 257
-#define t_separators 258
-#define t_carriage_return 259
-#define t_main 260
-#define t_curlbrack1 261
-#define t_curlbrack2 262
-#define t_const 263
-#define t_printf 264
-#define t_declaration 265
-#define t_math_operator 266
-#define t_parentheses1 267
-#define t_parentheses2 268
-#define t_end_of_instruc 269
+#define t_name 258
+#define t_separators 259
+#define t_carriage_return 260
+#define t_main 261
+#define t_curlbrack1 262
+#define t_curlbrack2 263
+#define t_const 264
+#define t_printf 265
+#define t_declaration 266
+#define t_math_operator 267
+#define t_parentheses1 268
+#define t_parentheses2 269
+#define t_end_of_instruc 270
 
 /* Value type.  */
 #if ! defined YYSTYPE && ! defined YYSTYPE_IS_DECLARED
@@ -170,21 +173,22 @@ enum yysymbol_kind_t
   YYSYMBOL_YYEOF = 0,                      /* "end of file"  */
   YYSYMBOL_YYerror = 1,                    /* error  */
   YYSYMBOL_YYUNDEF = 2,                    /* "invalid token"  */
-  YYSYMBOL_t_separators = 3,               /* t_separators  */
-  YYSYMBOL_t_carriage_return = 4,          /* t_carriage_return  */
-  YYSYMBOL_t_main = 5,                     /* t_main  */
-  YYSYMBOL_t_curlbrack1 = 6,               /* t_curlbrack1  */
-  YYSYMBOL_t_curlbrack2 = 7,               /* t_curlbrack2  */
-  YYSYMBOL_t_const = 8,                    /* t_const  */
-  YYSYMBOL_t_printf = 9,                   /* t_printf  */
-  YYSYMBOL_t_declaration = 10,             /* t_declaration  */
-  YYSYMBOL_t_math_operator = 11,           /* t_math_operator  */
-  YYSYMBOL_t_parentheses1 = 12,            /* t_parentheses1  */
-  YYSYMBOL_t_parentheses2 = 13,            /* t_parentheses2  */
-  YYSYMBOL_t_end_of_instruc = 14,          /* t_end_of_instruc  */
-  YYSYMBOL_YYACCEPT = 15,                  /* $accept  */
-  YYSYMBOL_symbol = 16,                    /* symbol  */
-  YYSYMBOL_A = 17                          /* A  */
+  YYSYMBOL_t_name = 3,                     /* t_name  */
+  YYSYMBOL_t_separators = 4,               /* t_separators  */
+  YYSYMBOL_t_carriage_return = 5,          /* t_carriage_return  */
+  YYSYMBOL_t_main = 6,                     /* t_main  */
+  YYSYMBOL_t_curlbrack1 = 7,               /* t_curlbrack1  */
+  YYSYMBOL_t_curlbrack2 = 8,               /* t_curlbrack2  */
+  YYSYMBOL_t_const = 9,                    /* t_const  */
+  YYSYMBOL_t_printf = 10,                  /* t_printf  */
+  YYSYMBOL_t_declaration = 11,             /* t_declaration  */
+  YYSYMBOL_t_math_operator = 12,           /* t_math_operator  */
+  YYSYMBOL_t_parentheses1 = 13,            /* t_parentheses1  */
+  YYSYMBOL_t_parentheses2 = 14,            /* t_parentheses2  */
+  YYSYMBOL_t_end_of_instruc = 15,          /* t_end_of_instruc  */
+  YYSYMBOL_YYACCEPT = 16,                  /* $accept  */
+  YYSYMBOL_symbol = 17,                    /* symbol  */
+  YYSYMBOL_A = 18                          /* A  */
 };
 typedef enum yysymbol_kind_t yysymbol_kind_t;
 
@@ -510,21 +514,21 @@ union yyalloc
 #endif /* !YYCOPY_NEEDED */
 
 /* YYFINAL -- State number of the termination state.  */
-#define YYFINAL  4
+#define YYFINAL  5
 /* YYLAST -- Last index in YYTABLE.  */
-#define YYLAST   1
+#define YYLAST   8
 
 /* YYNTOKENS -- Number of terminals.  */
-#define YYNTOKENS  15
+#define YYNTOKENS  16
 /* YYNNTS -- Number of nonterminals.  */
 #define YYNNTS  3
 /* YYNRULES -- Number of rules.  */
 #define YYNRULES  3
 /* YYNSTATES -- Number of states.  */
-#define YYNSTATES  5
+#define YYNSTATES  11
 
 /* YYMAXUTOK -- Last valid token kind.  */
-#define YYMAXUTOK   269
+#define YYMAXUTOK   270
 
 
 /* YYTRANSLATE(TOKEN-NUM) -- Symbol number corresponding to TOKEN-NUM
@@ -564,14 +568,15 @@ static const yytype_int8 yytranslate[] =
        2,     2,     2,     2,     2,     2,     2,     2,     2,     2,
        2,     2,     2,     2,     2,     2,     2,     2,     2,     2,
        2,     2,     2,     2,     2,     2,     1,     2,     3,     4,
-       5,     6,     7,     8,     9,    10,    11,    12,    13,    14
+       5,     6,     7,     8,     9,    10,    11,    12,    13,    14,
+      15
 };
 
 #if YYDEBUG
 /* YYRLINE[YYN] -- Source line where rule number YYN was defined.  */
 static const yytype_int8 yyrline[] =
 {
-       0,    15,    15,    20
+       0,    17,    17,    22
 };
 #endif
 
@@ -587,10 +592,11 @@ static const char *yysymbol_name (yysymbol_kind_t yysymbol) YY_ATTRIBUTE_UNUSED;
    First, the terminals, then, starting at YYNTOKENS, nonterminals.  */
 static const char *const yytname[] =
 {
-  "\"end of file\"", "error", "\"invalid token\"", "t_separators",
-  "t_carriage_return", "t_main", "t_curlbrack1", "t_curlbrack2", "t_const",
-  "t_printf", "t_declaration", "t_math_operator", "t_parentheses1",
-  "t_parentheses2", "t_end_of_instruc", "$accept", "symbol", "A", YY_NULLPTR
+  "\"end of file\"", "error", "\"invalid token\"", "t_name",
+  "t_separators", "t_carriage_return", "t_main", "t_curlbrack1",
+  "t_curlbrack2", "t_const", "t_printf", "t_declaration",
+  "t_math_operator", "t_parentheses1", "t_parentheses2",
+  "t_end_of_instruc", "$accept", "symbol", "A", YY_NULLPTR
 };
 
 static const char *
@@ -600,7 +606,7 @@ yysymbol_name (yysymbol_kind_t yysymbol)
 }
 #endif
 
-#define YYPACT_NINF (-5)
+#define YYPACT_NINF (-12)
 
 #define yypact_value_is_default(Yyn) \
   ((Yyn) == YYPACT_NINF)
@@ -614,7 +620,8 @@ yysymbol_name (yysymbol_kind_t yysymbol)
    STATE-NUM.  */
 static const yytype_int8 yypact[] =
 {
-      -4,    -5,     1,    -5,    -5
+      -6,    -5,     1,   -12,    -4,   -12,    -1,     3,   -11,     0,
+     -12
 };
 
 /* YYDEFACT[STATE-NUM] -- Default reduction number in state STATE-NUM.
@@ -622,13 +629,14 @@ static const yytype_int8 yypact[] =
    means the default is an error.  */
 static const yytype_int8 yydefact[] =
 {
-       0,     3,     0,     2,     1
+       0,     0,     0,     2,     0,     1,     0,     0,     0,     0,
+       3
 };
 
 /* YYPGOTO[NTERM-NUM].  */
 static const yytype_int8 yypgoto[] =
 {
-      -5,    -5,    -5
+     -12,   -12,   -12
 };
 
 /* YYDEFGOTO[NTERM-NUM].  */
@@ -642,31 +650,32 @@ static const yytype_int8 yydefgoto[] =
    number is the opposite.  If YYTABLE_NINF, syntax error.  */
 static const yytype_int8 yytable[] =
 {
-       1,     4
+       1,     5,     4,     7,     9,     6,     8,     0,    10
 };
 
 static const yytype_int8 yycheck[] =
 {
-       4,     0
+       6,     0,     7,     4,    15,     9,     3,    -1,     8
 };
 
 /* YYSTOS[STATE-NUM] -- The symbol kind of the accessing symbol of
    state STATE-NUM.  */
 static const yytype_int8 yystos[] =
 {
-       0,     4,    16,    17,     0
+       0,     6,    17,    18,     7,     0,     9,     4,     3,    15,
+       8
 };
 
 /* YYR1[RULE-NUM] -- Symbol kind of the left-hand side of rule RULE-NUM.  */
 static const yytype_int8 yyr1[] =
 {
-       0,    15,    16,    17
+       0,    16,    17,    18
 };
 
 /* YYR2[RULE-NUM] -- Number of symbols on the right-hand side of rule RULE-NUM.  */
 static const yytype_int8 yyr2[] =
 {
-       0,     2,     1,     1
+       0,     2,     1,     7
 };
 
 
@@ -1130,23 +1139,23 @@ yyreduce:
   switch (yyn)
     {
   case 2: /* symbol: A  */
-#line 16 "syntax_analyser.y"
+#line 18 "syntax_analyser.y"
         {
             printf("start");
         }
-#line 1138 "y.tab.c"
+#line 1147 "y.tab.c"
     break;
 
-  case 3: /* A: t_carriage_return  */
-#line 21 "syntax_analyser.y"
+  case 3: /* A: t_main t_curlbrack1 t_const t_separators t_name t_end_of_instruc t_curlbrack2  */
+#line 23 "syntax_analyser.y"
         {
-            printf("message");
+            printf("message : %s", buffer);
         }
-#line 1146 "y.tab.c"
+#line 1155 "y.tab.c"
     break;
 
 
-#line 1150 "y.tab.c"
+#line 1159 "y.tab.c"
 
       default: break;
     }
@@ -1339,7 +1348,7 @@ yyreturnlab:
   return yyresult;
 }
 
-#line 25 "syntax_analyser.y"
+#line 27 "syntax_analyser.y"
 
 
 //Programmes
